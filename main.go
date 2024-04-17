@@ -1,20 +1,32 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"myapp/doctor"
+	"os"
+	"strings"
 )
 
 func main() {
-	// var whatToSay string = "Hello, World!"
-	// oneStep_whatToSay := "Hello, World!"
-	// sayHello(whatToSay)
-	// sayHello(oneStep_whatToSay)
-	var whatToSay string
-	whatToSay = doctor.Intro()
-	fmt.Println(whatToSay)
-}
+	// write a while loop that will keep running until the user types "quit"
 
-func sayHello(whatToSay string) {
+	reader := bufio.NewReader(os.Stdin)
+	whatToSay := doctor.Intro()
 	fmt.Println(whatToSay)
+
+	// whenever the user presses enter, the program will read the input and store it in the userInput variable
+	for {
+		fmt.Println("->")
+		userInput, _ := reader.ReadString('\n')
+
+		// This \r\n is for windows, \n is for unix
+		userInput = strings.Replace(userInput, "\r\n", "", -1)
+		userInput = strings.Replace(userInput, "\n", "", -1)
+		if userInput == "quit" {
+			break
+		} else {
+			fmt.Println(doctor.Response(userInput))
+		}
+	}
 }
