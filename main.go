@@ -1,9 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"myapp/doctor"
+)
 
 func main() {
-	sayHello("Hello, World!")
+	// var whatToSay string = "Hello, World!"
+	// oneStep_whatToSay := "Hello, World!"
+	// sayHello(whatToSay)
+	// sayHello(oneStep_whatToSay)
+	var whatToSay string
+	whatToSay = doctor.Intro()
+	fmt.Println(whatToSay)
 }
 
 func sayHello(whatToSay string) {
