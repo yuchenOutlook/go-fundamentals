@@ -1,23 +1,27 @@
 package main
 
 import (
-	"fmt"
 	"myapp/Scope/packageone"
 )
 
-var one = "this is a global variable"
-func main() {
-	var one = "this is a local variable"
-	var somethingElse = "this is a block level variable"
-	fmt.Println(one)
-	fmt.Println(somethingElse)
-	fmt.Println(packageone.PublicVar)
-	// This will not work
-	// fmt.Println(packageone.privateVar)
-	myFunc()
-	packageone.Exported()
-}
+var myVar = "Package level variable"
 
-func myFunc() {
-	fmt.Println(one)
+func main() {
+	// variables
+	// declare a package level variable for the main
+	// package named myVar
+	
+
+	// declare a block variable for the main function
+	// called blockVar
+	var blockVar = "Block level variable"
+
+	// decalre the package level variable in the packageone
+	// package named PackageVar
+
+	// create an exported function in package one called PrineMe
+
+	// in the main function, print out the values of myVar,
+	// blockVar, and PackageVar on one line
+	packageone.PrintMe(myVar, blockVar)
 }
