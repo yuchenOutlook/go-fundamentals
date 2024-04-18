@@ -3,19 +3,25 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math/rand"
 	"os"
+	"time"
 )
 
-const prompt = "and press ENTER when you are ready."
+const prompt = "and don't type your number in, just press ENTER when you are ready."
 
 func main() {
-	var firstNumber = 2
-	var secondNumber = 5
-	var subtraction = 7
-	var answer int
+	// seed rand number generator
+	rand.Seed(time.Now().UnixNano())
+	var firstNumber = rand.Intn(8) + 2
+	var secondNumber = rand.Intn(8) + 2
+	var subtraction = rand.Intn(8) + 2
+	var answer = firstNumber*secondNumber - subtraction
+	printTheGame(firstNumber, secondNumber, subtraction, answer)
+}
 
+func printTheGame(firstNumber int, secondNumber int, subtraction int, answer int) {
 	reader := bufio.NewReader(os.Stdin)
-
 	fmt.Println("Guess the Number Game.")
 	fmt.Println("=====================")
 	fmt.Println("")
@@ -33,7 +39,5 @@ func main() {
 
 	fmt.Println("Now subtract", subtraction, prompt)
 	reader.ReadString('\n')
-	answer = firstNumber * secondNumber - subtraction
 	fmt.Println("The answer is", answer)
-
 }
