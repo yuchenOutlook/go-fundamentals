@@ -7,6 +7,7 @@ func zeroval(ival int) {
 	ival = 0
 }
 
+// you need to input the address of the variable to change the value of the variable
 func zeroptr(iptr *int) {
 	*iptr = 0
 }
@@ -14,6 +15,8 @@ func zeroptr(iptr *int) {
 func squareval(v int) int {
 	v *= v
 	fmt.Println("v inside squareval:", v)
+	// invalid operation: cannot indirect v (variable of type int)
+	// fmt.Println("*v inside squareval:", *v)
 	fmt.Println("&v inside squareval:", &v)
 	return v
 }
@@ -25,7 +28,7 @@ func squareAddress(v *int) {
 
 func main() {
 	j, z := 25, 50
-	fmt.Println("j, z:", j, z)
+	fmt.Println("j, z:", j, z)   // 25 50 
 	fmt.Println("Address of j, z:", &j, &z)
 	fmt.Println("+=====================================================================+")
 
