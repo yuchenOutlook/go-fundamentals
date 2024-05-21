@@ -4,6 +4,14 @@ import "fmt"
 
 // Define an enumeration of days of the week.
 type Day int
+type DriverType int
+
+const (
+    NormalDriver DriverType = iota << 1
+    HosDriver
+    ELDDriver
+    AutopilotDriver
+)
 
 const (
     Sunday Day = iota  // iota starts at 0
@@ -15,6 +23,16 @@ const (
     Saturday
 )
 
+func (dt DriverType) String() string {
+    names := map[DriverType]string{
+        NormalDriver: "NormalDriver",
+        HosDriver: "HosDriver",
+        ELDDriver: "ELDDriver",
+        AutopilotDriver: "AutopilotDriver",
+    }
+    return names[dt]
+}
+
 // A function that returns whether a day is a weekday or not.
 func (d Day) IsWeekday() bool {
     switch d {
@@ -22,6 +40,15 @@ func (d Day) IsWeekday() bool {
         return false
     default:
         return true
+    }
+}
+
+func (dt DriverType) IsAutopilot() bool {
+    switch dt {
+    case AutopilotDriver:
+        return true
+    default:
+        return false
     }
 }
 
@@ -35,6 +62,16 @@ func (d Day) String() string {
 func EnumExample() {
     today := Tuesday
     fmt.Println("Today is:", today)
+
+    new_driver := AutopilotDriver
+    if new_driver.IsAutopilot() {
+        fmt.Println(new_driver, "is an autopilot driver.")
+    }
+
+    normal_driver := NormalDriver
+    if !normal_driver.IsAutopilot() {
+        fmt.Println(normal_driver, "is not an autopilot driver.")
+    }
 
     if today.IsWeekday() {
         fmt.Println(today, "is a weekday.")
