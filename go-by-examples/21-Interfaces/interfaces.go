@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	my_interface_example "myapp/go-by-examples/21-Interfaces/my-interface-example"
+)
 
 // Speaker interface definition
 type Speaker interface {
@@ -32,5 +35,18 @@ func introduce(speaker Speaker) {
 func main() {
     john := Person{Name: "John"}
     introduce(john)  // Output: Hi, my name is John
+
+	javaProgrammer := my_interface_example.JavaProgrammer{
+		Name:       "John",
+		Age:        30,
+		Occupation: "Java Programmer",
+	}
+    javaProgrammer.Develop() // Output: John is developing a new feature
+
+    golangProgrammer := my_interface_example.NewGolangProgrammer("John", "New York")
+    golangProgrammer.Develop() // Output: John is developing a new feature at New York
+    golangProgrammer.WriteUnitTests("feature1") // Output: John is writing unit tests for feature1
+    golangProgrammer.Debug("feature1") // Output: John is debugging feature1
+    
 
 }

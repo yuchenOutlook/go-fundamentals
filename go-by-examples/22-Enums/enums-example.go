@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	enums_test "myapp/go-by-examples/22-Enums/gpt-examples"
+	my_enum_example "myapp/go-by-examples/22-Enums/my_enum_example"
 )
 
 // An enum is a type that has a fixed set of values, each with a distinct name.
@@ -37,6 +38,8 @@ func main() {
 
 	enums_test.EnumExample()
 
+	http_status := my_enum_example.OK
+	fmt.Println("httpStatusCode 200: ", http_status.String())
 }
 
 func transition(s ServiceState) ServiceState{
