@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	goroutinemyexample "myapp/go-by-examples/27-Goroutines/go-routine-my-example"
 	"time"
 )
 
@@ -15,19 +16,23 @@ func f(from string) {
 }
 
 func main() {
-	go f("goroutine2")
-	// Call it in a usual way, running it synchronously.
-	f("direct")
+	// go f("goroutine2")
+	// // Call it in a usual way, running it synchronously.
+	// f("direct")
 
-	// To invoke this function in a goroutine, use go f(s), this runs concurrently.
-	go f("goroutine")
+	// // To invoke this function in a goroutine, use go f(s), this runs concurrently.
+	// go f("goroutine")
 
-	//You can also start a goroutine for an anonymous function call.
-	go func(msg string) {
-		fmt.Println(msg)
-	}("going")
+	// //You can also start a goroutine for an anonymous function call.
+	// go func(msg string) {
+	// 	fmt.Println(msg)
+	// }("going")
 
-	time.Sleep(time.Second * 4)
-	fmt.Println("done")
-	
+	// time.Sleep(time.Second * 4)
+	// fmt.Println("done")
+
+	fmt.Println("=====================================")
+	fmt.Println("Go routine my own example.")
+
+	goroutinemyexample.GoroutineMyExample()
 }
