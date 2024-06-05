@@ -1,2 +1,4 @@
 github.com/bastengao/chinese-holidays-go v1.5.0 h1:B3Jp+wZ2euQ4ARrcYBtKEFFMkBwBzuuKqhfVwIikOAw=
 github.com/bastengao/chinese-holidays-go v1.5.0/go.mod h1:V8TbYb0LS9o4tfUoEMQm0a+XWnAghAnxjo/Z3JlKHZw=
+golang.org/x/exp v0.0.0-20240506185415-9bf2ced13842 h1:vr/HnozRka3pE4EsMEg1lgkXJkTFJCVUX+S/ZT6wYzM=
+golang.org/x/exp v0.0.0-20240506185415-9bf2ced13842/go.mod h1:XtvwrStGgqGPLc4cjQfWqZHG1YFdYs6swckp8vpsjnc=
