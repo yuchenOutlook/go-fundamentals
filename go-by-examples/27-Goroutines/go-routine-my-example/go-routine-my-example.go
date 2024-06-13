@@ -8,7 +8,7 @@ import (
 func GoroutineMyExample() {
 	start := time.Now()
 	defer func() {
-		fmt.Println(time.Since(start))
+		fmt.Println("go routine my example end duration: ", time.Since(start))
 	}()
 	evilNinja := []string {"Evil Ninja", "Evil Ninja2", "Evil Ninja3", "Evil Ninja4"}
 
