@@ -1,12 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+)
 
 func intSeq() func() int {
 	i := 0
 	return func() int {
 		i++
 		return i
+	}
+}
+
+		
+func randomfunc() func() int {
+	p := fmt.Println
+	p("randomfunc is called.")
+	v := rand.Intn(100)
+	return func() int {
+		p("the function within the randomfunc is called, now returning a random int: ", v)
+		return v;
 	}
 }
 
@@ -27,17 +41,20 @@ func intSeq2(slices []int) func() int {
 }
 
 func main() {
+	p := fmt.Println
+	r := randomfunc
+	print(r()())
 	ints := intSeq()
-	fmt.Println(ints())
-	fmt.Println(ints())
-	fmt.Println(ints())
+	p(ints())
+	p(ints())
+	p(ints())
 
 	newInts := intSeq()
-	fmt.Println(newInts())
-	fmt.Println("=====================================init2=====================================")
+	p(newInts())
+	p("=====================================init2=====================================")
 		
 	init2 := intSeq2([]int{1, 2, 3, 4, 5})
-	fmt.Println("init2 is created. Now calling it.")
-	fmt.Println(init2())
-	fmt.Println("the init2 is now done.")
+	p("init2 is created. Now calling it.")
+	p(init2())
+	p("the init2 is now done.")
 }
