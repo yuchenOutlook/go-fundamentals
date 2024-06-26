@@ -30,7 +30,8 @@ func main() {
 	fltB, _ := json.Marshal(1.23)
 	fmt.Println(string(fltB))
 
-	strB, _ := json.Marshal("gopher")
+	gopher_str := "gopher"
+	strB, _ := json.Marshal(&gopher_str)
 	fmt.Println(string(strB))
 
 	slcD := []string{"apple", "peach", "pear"}
@@ -51,7 +52,10 @@ func main() {
     res2D := &response2{
         Page:   1,
         Fruits: []string{"apple", "peach", "pear"}}
+	fmt.Println("res2D before marshal: ", *res2D)
     res2B, _ := json.Marshal(res2D)
+	fmt.Println("res2D after marshal: ", *res2D)
+
     fmt.Println(string(res2B))
 
 	// Now let's look at decoding data
