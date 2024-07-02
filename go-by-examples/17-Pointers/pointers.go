@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"golang.org/x/crypto/ssh/agent"
+)
 
 
 func zeroval(ival int) {

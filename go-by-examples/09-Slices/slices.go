@@ -8,7 +8,24 @@ import (
 	"slices"
 )
 
+func Test() {
+	intSlice1 := []int{1, 2, 3}
+	intSlice2 := intSlice1[1:3] // intSlice2 = {2, 3}
+	intSlice1[1] = 0 // intSlice1 = {1, 0, 3}
+	intSlice2 = append(intSlice2, 4) // intSlice2 = {0, 3, 4}
+	intSlice2[1] = 5 // intslice2 = {0, 5, 4}
+	fmt.Println(intSlice1)
+	fmt.Println(intSlice2) 
+ 
+	intSlice3 := append(intSlice2, 6) // intslice3 = {0, 5, 4, 6}
+	intSlice3[1] = 7 // slice2 = {0, 7, 4, 6}
+	intSlice1[1] = 50
+	fmt.Println(intSlice2) 
+	fmt.Println(intSlice3) 
+ }
+
 func main() {
+	Test()
 	var s []string
 	fmt.Println("Uninit", s, s == nil, len(s) == 0)
 
