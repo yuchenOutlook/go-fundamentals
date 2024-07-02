@@ -18,6 +18,15 @@ func main() {
 	u, _ := strconv.ParseUint("789", 0, 64)
     fmt.Println(u)
 
+	/*
+	Simplicity:
+
+	Atoi is simpler to use when you know you are dealing with base 10 integers.
+	It does not require you to specify the base and bit size, making the code more concise.
+	Common Use Case:
+
+	Atoi is intended specifically for converting strings to integers in base 10, which is a very common requirement.
+	*/
 	k, _ := strconv.Atoi("135")
 	fmt.Println(k)
 }
